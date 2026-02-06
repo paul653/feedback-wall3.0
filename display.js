@@ -52,7 +52,17 @@ function addFloating(text) {
   div.className = "float";
   div.textContent = text;
 
-  div.style.top = 20 + Math.random() * 60 + "%";
+  // Avoid center: place top OR bottom
+  const placeTop = Math.random() < 0.5;
+
+  if (placeTop) {
+    // Top zone
+    div.style.top = 10 + Math.random() * 25 + "%";
+  } else {
+    // Bottom zone
+    div.style.top = 65 + Math.random() * 25 + "%";
+  }
+
   div.style.left = Math.random() * 70 + "%";
   div.style.animationDuration = 18 + Math.random() * 10 + "s";
 
